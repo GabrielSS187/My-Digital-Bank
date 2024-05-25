@@ -40,8 +40,7 @@ jobs:
 
     - name: Deploy to production
       run: |
-        npm install
-        npm run build
+        echo "Deploying to production server..."
 
   release:
     if: github.ref == 'refs/heads/release/*'
@@ -53,5 +52,4 @@ jobs:
 
     - name: Create release
       run: |
-        npm install
-        npm run build
+        echo "Creating a new release..."
