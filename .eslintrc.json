@@ -17,8 +17,15 @@
     },
     "import/resolver": {
       "node": {
-        "paths": ["src"],
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        "paths": [
+          "src"
+        ],
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
       }
     }
   },
@@ -28,7 +35,10 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "ignorePatterns": ["**/*.css", ".snap"],
+  "ignorePatterns": [
+    "**/*.css",
+    ".snap"
+  ],
   "plugins": [
     "react",
     "@typescript-eslint",
@@ -41,7 +51,10 @@
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
     "import/no-unresolved": "off",
-
+    "linebreak-style": [
+      "error",
+      "lf"
+    ],
     "import/no-extraneous-dependencies": "off",
     "@typescript-eslint/restrict-template-expressions": "off",
     "import/no-cycle": "off",
@@ -58,8 +71,14 @@
         "semi": true,
         "singleQuote": true,
         "tailwindConfig": "./tailwind.config.ts",
-        "plugins": ["prettier-plugin-tailwindcss"],
+        "plugins": [
+          "prettier-plugin-tailwindcss"
+        ],
         "pluginSearchDirs": false
+      },
+      {
+        "singleQuote": true,
+        "parser": "flow"
       }
     ],
     "import-helpers/order-imports": [
@@ -67,7 +86,10 @@
       {
         "newlinesBetween": "always", // Cria uma nova linha para separar as importacoes
         "groups": [
-          ["/^react/", "/^next/"],
+          [
+            "/^react/",
+            "/^next/"
+          ],
           "/^@testing-library/react/",
           "/^contentlayer/",
           "/^fs/",
@@ -83,9 +105,16 @@
           "/^@/lib/",
           "/^@/styles/",
           "/^@/templates/",
-          ["parent", "sibling", "index"]
+          [
+            "parent",
+            "sibling",
+            "index"
+          ]
         ],
-        "alphabetize": { "order": "asc", "ignoreCase": true }
+        "alphabetize": {
+          "order": "asc",
+          "ignoreCase": true
+        }
       }
     ]
   }
