@@ -1,7 +1,14 @@
+'use client';
+
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>Hello World!</h1>
-    </main>
-  );
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push('/signIn');
+  }, []);
+
+  return <></>;
 }
