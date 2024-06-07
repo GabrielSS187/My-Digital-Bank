@@ -29,7 +29,6 @@
       }
     }
   },
-  "overrides": [],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
@@ -46,14 +45,26 @@
     "import-helpers"
   ],
   "rules": {
+    "no-unused-vars": "off", // Desativa a regra padrão do ESLint
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": true,
+        "varsIgnorePattern": "^_",
+        "argsIgnorePattern": "^_"
+      }
+    ],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
     "import/no-unresolved": "off",
+    // Mantenha a regra "linebreak-style", mas ajuste-a para ignorar arquivos específicos ou diretórios
     "linebreak-style": [
       "error",
-      "lf"
+      "unix" // Use "unix" para LF, "windows" para CRLF
     ],
     "import/no-extraneous-dependencies": "off",
     "@typescript-eslint/restrict-template-expressions": "off",
@@ -62,54 +73,33 @@
     "jsx-a11y/heading-has-content": "off",
     "jsx-a11y/anchor-has-content": "off",
     "jsx-a11y/iframe-has-title": "off",
-
     "@typescript-eslint/explicit-module-boundary-types": "off",
-    "prettier/prettier": [
-      "error",
-      {
-        "trailingComma": "none",
-        "semi": true,
-        "singleQuote": true,
-        "tailwindConfig": "./tailwind.config.ts",
-        "plugins": [
-          "prettier-plugin-tailwindcss"
-        ],
-        "pluginSearchDirs": false
-      },
-      {
-        "singleQuote": true,
-        "parser": "flow"
-      }
-    ],
+    "prettier/prettier": "error", // Usa as configurações do Prettier a partir do .prettierrc.json
     "import-helpers/order-imports": [
       "warn",
       {
-        "newlinesBetween": "always", // Cria uma nova linha para separar as importacoes
+        "newLinesBetween": "always",
         "groups": [
-          [
-            "/^react/",
-            "/^next/"
-          ],
-          "/^@testing-library/react/",
-          "/^contentlayer/",
-          "/^fs/",
-          "/^disqus-react/",
+          "react",
+          "next",
+          "@testing-library/react",
+          "contentlayer",
+          "fs",
+          "disqus-react",
           "module",
-          "/^@shared/",
+          "@shared",
           "absolute",
-          "/^@/components/",
-          "/^@/pages/",
-          "/utils/",
-          "/^@/models/",
-          "/^@/store/",
-          "/^@/lib/",
-          "/^@/styles/",
-          "/^@/templates/",
-          [
-            "parent",
-            "sibling",
-            "index"
-          ]
+          "@/components",
+          "@/pages",
+          "@/utils",
+          "@/models",
+          "@/store",
+          "@/lib",
+          "@/styles",
+          "@/templates",
+          "parent",
+          "sibling",
+          "index"
         ],
         "alphabetize": {
           "order": "asc",
