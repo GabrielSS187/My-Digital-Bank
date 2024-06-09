@@ -1,7 +1,7 @@
-import NextAuth from 'next-auth';
 import { authConfig } from '@/auth.config';
 import { DEFAULT_REDIRECT, PUBLIC_ROUTES, ROOT } from '@/lib/routes';
-import { TestServiceApi } from './services/api/test.service';
+
+import NextAuth from 'next-auth';
 
 const { auth } = NextAuth(authConfig);
 
