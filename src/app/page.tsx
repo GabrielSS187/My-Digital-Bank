@@ -2,15 +2,13 @@
 
 import { useEffect } from 'react';
 
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
   const router = useRouter();
 
-  const a = '';
-
   useEffect(() => {
-    router.push('/singIn');
+    router.push('/signIn');
   }, []);
 
   return <></>;
