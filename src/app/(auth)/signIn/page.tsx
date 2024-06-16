@@ -1,6 +1,6 @@
 'use client';
 
-import { FormSignInAndSignUp } from '@/components/FormSignInAndSignUp';
+import { FormSignInAndSignUp } from '@/shared/components/FormSignInAndSignUp';
 
 export default function Page() {
   return (
