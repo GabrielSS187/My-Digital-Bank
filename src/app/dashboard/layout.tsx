@@ -1,4 +1,4 @@
-import { Sidebar } from '@/shared/components/Sidebar';
+import { EncapsulatingDashboard } from '@/shared/content/EncapsulatingDashboard';
 
 import type { Metadata } from 'next';
 
@@ -12,7 +12,7 @@ export default function DashboardLayout({
 }>) {
   return (
     <main className="overflow-hidden">
-      <Sidebar pChildren={children} />
+      <EncapsulatingDashboard pChildren={children} />
     </main>
   );
 }

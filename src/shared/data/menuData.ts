@@ -10,7 +10,7 @@ import { User } from '@/shared/assets/svgs/User';
 
 import { FC } from 'react';
 
-type TMenu = {
+export type TMenu = {
   id: number;
   title: string;
   path: string;
