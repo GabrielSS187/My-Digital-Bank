@@ -14,7 +14,7 @@ export function Header({ actualLocationTitle, openMenuInHeader }: TProps) {
   return (
     <div className="flex flex-col items-center gap-3 border-b-2 px-5 py-4">
       <div className="flex h-auto w-full items-center justify-between">
-        <div className="mt-1 flex md:hidden">
+        <div className="mt-1 flex lg:hidden">
           <button onClick={openMenuInHeader}>
             <List size={30} />
           </button>
@@ -48,7 +48,7 @@ export function Header({ actualLocationTitle, openMenuInHeader }: TProps) {
         </div>
       </div>
 
-      <div className="flex w-full gap-3 md:hidden">
+      <div className="flex w-full gap-3 lg:hidden">
         <div className="w-full">
           <input
             type="search"
@@ -56,14 +56,14 @@ export function Header({ actualLocationTitle, openMenuInHeader }: TProps) {
             placeholder="Search by name..."
           />
         </div>
-        <div className="flex gap-3">
+        {/* <div className="flex gap-3">
           <button className=" rounded-full bg-gray-100 p-2">
             <Gear size={25} />
           </button>
           <button className=" rounded-full bg-gray-100 p-2 text-red-500">
             <BellSimple size={25} />
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

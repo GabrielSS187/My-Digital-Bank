@@ -4,7 +4,7 @@ import { Header } from '@/shared/components/Header';
 import { Sidebar } from '@/shared/components/Sidebar';
 import { menuData } from '@/shared/data/menuData';
 
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 
 import { usePathname } from 'next/navigation';
 
@@ -17,6 +17,13 @@ export function EncapsulatingDashboard({ pChildren }: TProps) {
   const [actualLocationTitle, setActualLocationTittle] = useState<string>('');
 
   const pathname = usePathname();
+
+  useEffect(() => {
+    const widthScreen = window.screen.width;
+    if (widthScreen <= 1024) {
+      setOpenMenu(false);
+    }
+  }, []);
 
   const getTittleActualLocation = useCallback((pathname: string) => {
     const actualMenu = menuData.find(
@@ -33,7 +40,6 @@ export function EncapsulatingDashboard({ pChildren }: TProps) {
 
   function openMenuInHeader() {
     setOpenMenu(true);
-    console.log(openMenu);
   }
 
   return (
