@@ -57,7 +57,7 @@ export function Sidebar({
         </button>
         <div className="mt-4 lg:mt-7">
           {menuData.map((menu) => (
-            <li key={menu.id} title={`${!open ? menu.title : ''}`}>
+            <li key={menu.id} title={`${!openMenu ? menu.title : ''}`}>
               <Link
                 href={menu.path}
                 className={`
