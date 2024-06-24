@@ -6,7 +6,6 @@ import { useForm } from 'react-hook-form';
 
 import { signIn } from 'next-auth/react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 
 type Props = {
   isFormLogin?: boolean;
@@ -20,15 +19,13 @@ type TFormData = {
 
 export function FormSignInAndSignUp({ isFormLogin = true }: Props) {
   const form = useForm<TFormData>();
-  const router = useRouter();
 
   const handleForm = form.handleSubmit(async (data) => {
     const { email, password } = data;
 
     if (isFormLogin) {
       try {
-        await signIn('credentials', { email, password, redirect: false });
-        router.refresh();
+        await signIn('credentials', { email, password, redirect: true });
       } catch (error) {
         console.log(error);
       }

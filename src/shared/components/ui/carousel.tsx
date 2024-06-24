@@ -1,7 +1,7 @@
 'use client';
 
-import { Button } from '@/shared/components/ui/button';
 import { cn } from '@/lib/utils';
+import { Button } from '@/shared/components/ui/button';
 import { ArrowLeftIcon, ArrowRightIcon } from '@radix-ui/react-icons';
 import useEmblaCarousel, {
   type UseEmblaCarouselType

@@ -1,8 +1,18 @@
+import { signOut } from "next-auth/react"
+
 import {
   Avatar,
   AvatarFallback,
   AvatarImage
 } from '@/shared/components/ui/avatar';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger
+} from '@/shared/components/ui/dropdown-menu';
 import { Gear, BellSimple, List } from 'phosphor-react';
 
 type TProps = {
@@ -10,7 +20,7 @@ type TProps = {
   actualLocationTitle: string;
 };
 
-export function Header({ actualLocationTitle, openMenuInHeader }: TProps) {
+export function Header({ actualLocationTitle, openMenuInHeader }: TProps) {  
   return (
     <div className="flex flex-col items-center gap-3 border-b-2 px-5 py-4">
       <div className="flex h-auto w-full items-center justify-between">
@@ -39,12 +49,21 @@ export function Header({ actualLocationTitle, openMenuInHeader }: TProps) {
           <button className="hidden rounded-full bg-gray-100 p-2 text-red-500 lg:block">
             <BellSimple size={25} />
           </button>
-          <button>
-            <Avatar className="">
-              <AvatarImage src="https://github.com/shadcn.png" />
-              <AvatarFallback>CN</AvatarFallback>
-            </Avatar>
-          </button>
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              <Avatar>
+                <AvatarImage src="https://github.com/shadcn.png" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+
+              <DropdownMenuContent className="absolute !right-[-22px] !w-[10rem]">
+                <DropdownMenuLabel>Minha Conta</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>Configurações</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => signOut()}>Sair</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenuTrigger>
+          </DropdownMenu>
         </div>
       </div>
 
@@ -68,3 +87,7 @@ export function Header({ actualLocationTitle, openMenuInHeader }: TProps) {
     </div>
   );
 }
+function getServerSession() {
+  throw new Error('Function not implemented.');
+}
+

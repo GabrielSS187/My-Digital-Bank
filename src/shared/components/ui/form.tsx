@@ -1,5 +1,5 @@
-import { Label } from '@/shared/components/ui/label';
 import { cn } from '@/lib/utils';
+import { Label } from '@/shared/components/ui/label';
 import * as LabelPrimitive from '@radix-ui/react-label';
 import { Slot } from '@radix-ui/react-slot';
 
