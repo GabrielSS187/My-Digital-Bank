@@ -1,5 +1,8 @@
 name: CI/CD para produção (main)
 
+env:
+  VERCEL_GIT_TOKEN: ${{ secrets.VERCEL_GIT_TOKEN }}
+
 on:
   push:
     branches: [ main ]
@@ -25,13 +28,13 @@ jobs:
 
       - name: Deploy to Vercel (production)
         env:
-          VERCEL_GIT_TOKEN: ${{ secrets.VERCEL_GIT_TOKEN }}
+          VERCEL_GIT_TOKEN: $VERCEL_GIT_TOKEN
         run: |
           # Instalar o CLI da Vercel
           npm install -g vercel
 
           # Entrar na conta da Vercel
-          vercel login ${{ secrets.VERCEL_GIT_TOKEN }}
+          vercel login $VERCEL_GIT_TOKEN
 
           # Implantar o diretório de compilação para a produção
           vercel deploy --prod .
