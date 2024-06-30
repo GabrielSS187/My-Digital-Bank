@@ -2,6 +2,8 @@ name: CI/CD para produção (main)
 
 env:
   VERCEL_GIT_TOKEN: ${{ secrets.VERCEL_GIT_TOKEN }}
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
 on:
   push:
