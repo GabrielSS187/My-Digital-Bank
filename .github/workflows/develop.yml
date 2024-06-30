@@ -1,0 +1,56 @@
+name: CI/CD para desenvolvimento (develop)
+
+on:
+  push:
+    branches: [ develop ]
+
+jobs:
+  build-test-preview:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build development bundle
+        run: npm run build-dev
+
+      - name: Install Vercel CLI
+        run: |
+          npm install -g vercel
+
+      - name: Generate Vercel preview URL
+        id: generate-preview-url
+        run: |
+          # Entrar na conta da Vercel
+          vercel login ${{ secrets.VERCEL_GIT_TOKEN }}
+
+          # Gerar URL de preview para a branch atual
+          VERCEL_URL=$(vercel preview --prod --scope ${{ github.repository }} ${{ github.event.ref }} | jq '.url')
+
+          # Salvar URL de preview como variável de ambiente
+          echo "VERCEL_PREVIEW_URL=$VERCEL_URL" >> $GITHUB_OUTPUT
+
+      - name: Post Vercel preview URL to PR comment
+        run: |
+          # Obter URL de preview da variável de ambiente
+          PREVIEW_URL=$VERCEL_PREVIEW_URL
+
+          # Comentar no PR com a URL de preview
+          github.actions.createComment({
+            body: "**Preview URL:** $PREVIEW_URL",
+            issue_number: ${{ github.event.issue.number }},
+            owner: ${{ github.repository_owner }},
+            repo: ${{ github.repository }}
+          })
