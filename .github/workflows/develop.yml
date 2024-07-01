@@ -31,11 +31,14 @@ jobs:
       - name: Install Vercel CLI
         run: npm install -g vercel
 
-      - name: Generate Vercel preview URL
-        id: generate-preview-url
+      - name: Deploy to Vercel (development)
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
         run: |
           # Gerar URL de preview para a branch atual
-          VERCEL_URL=$(vercel deploy --prebuilt --token $VERCEL_TOKEN)
+          VERCEL_URL=$(vercel deploy --prebuilt --token $VERCEL_TOKEN --scope $VERCEL_ORG_ID --project $VERCEL_PROJECT_ID --prod)
 
           # Salvar URL de preview como variável de ambiente
           echo "VERCEL_PREVIEW_URL=$VERCEL_URL" >> $GITHUB_ENV
