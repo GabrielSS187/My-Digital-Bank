@@ -6,54 +6,43 @@ env:
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
 on:
-  push:
-    branches: [ develop ]
+    push:
+        branches: [ develop ]
 
 jobs:
-  build-preview:
-    runs-on: ubuntu-latest
+    Deploy-Preview:
+        runs-on: ubuntu-latest
+        steps:
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+            - uses: actions/checkout@v3
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
+            - name: Install Vercel CLI
+              run: npm install --global vercel
 
-      - name: Install dependencies
-        run: npm install
+            - name: Pull Vercel Environment Information
+              run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
 
-      - name: Build development bundle
-        run: npm run build
+            - name: Build Project Artifacts
+              run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
 
-      - name: Install Vercel CLI
-        run: npm install -g vercel
+            - name: Deploy Project Artifacts
+              id: deploy
+              run: |
+                DEPLOY_URL=$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }} --confirm)
+                echo "VERCEL_PREVIEW_URL=$DEPLOY_URL" >> $GITHUB_ENV
 
-      - name: Deploy to Vercel (development)
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-        run: |
-          # Gerar URL de preview para a branch atual
-          VERCEL_URL=$(vercel --token $VERCEL_TOKEN --prod --confirm --env VERCEL_ORG_ID=$VERCEL_ORG_ID --env VERCEL_PROJECT_ID=$VERCEL_PROJECT_ID)
+            - name: Post Vercel preview URL to PR comment
+              if: github.event_name == 'pull_request'
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  PREVIEW_URL: ${{ env.VERCEL_PREVIEW_URL }}
+              run: |
+                  # Obter número do PR
+                  PR_NUMBER=$(echo ${{ github.event.pull_request.number }})
 
-          # Salvar URL de preview como variável de ambiente
-          echo "VERCEL_PREVIEW_URL=$VERCEL_URL" >> $GITHUB_ENV
-
-      - name: Post Vercel preview URL to PR comment
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PREVIEW_URL: ${{ env.VERCEL_PREVIEW_URL }}
-        run: |
-          # Obter número do PR
-          PR_NUMBER=$(echo ${{ github.event.ref }} | awk -F/ '{print $3}')
-
-          # Comentar no PR com a URL de preview
-          curl -s -X POST \
-            -H "Authorization: token $GITHUB_TOKEN" \
-            -H "Content-Type: application/json" \
-            -d "{\"body\": \"**Preview URL:** $PREVIEW_URL\"}" \
-            https://api.github.com/repos/${{ github.repository_owner }}/${{ github.repository }}/issues/$PR_NUMBER/comments
+                  # Comentar no PR com a URL de preview
+                  curl -s -X POST \
+                    -H "Authorization: token $GITHUB_TOKEN" \
+                    -H "Content-Type: application/json" \
+                    -d "{\"body\": \"**Preview URL:** $PREVIEW_URL\"}" \
+                    https://api.github.com/repos/${{ github.repository_owner }}/${{ github.repository }}/issues/$PR_NUMBER/comments
