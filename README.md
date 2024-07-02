@@ -2,4 +2,4 @@
 
 ## V1.1.0
 
-Um banco deigital mpderno com funcionalidades extraordinárias.
+Um banco digital moderno com funcionalidades extraordinárias.
