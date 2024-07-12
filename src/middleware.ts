@@ -1,4 +1,4 @@
-import { authConfig } from '@/auth.config';
+import { authConfig } from '@/shared/services/auth/auth.config';
 import { DEFAULT_REDIRECT, PUBLIC_ROUTES, ROOT } from '@/lib/routes';
 
 import NextAuth from 'next-auth';
