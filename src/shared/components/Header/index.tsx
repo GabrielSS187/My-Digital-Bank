@@ -1,5 +1,3 @@
-import { signOut } from "next-auth/react"
-
 import {
   Avatar,
   AvatarFallback,
@@ -15,12 +13,14 @@ import {
 } from '@/shared/components/ui/dropdown-menu';
 import { Gear, BellSimple, List } from 'phosphor-react';
 
+import { signOut } from 'next-auth/react';
+
 type TProps = {
   openMenuInHeader: () => void;
   actualLocationTitle: string;
 };
 
-export function Header({ actualLocationTitle, openMenuInHeader }: TProps) {  
+export function Header({ actualLocationTitle, openMenuInHeader }: TProps) {
   return (
     <div className="flex flex-col items-center gap-3 border-b-2 px-5 py-4">
       <div className="flex h-auto w-full items-center justify-between">
@@ -60,7 +60,9 @@ export function Header({ actualLocationTitle, openMenuInHeader }: TProps) {
                 <DropdownMenuLabel>Minha Conta</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>Configurações</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => signOut()}>Sair</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => signOut()}>
+                  Sair
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenuTrigger>
           </DropdownMenu>
@@ -90,4 +92,3 @@ export function Header({ actualLocationTitle, openMenuInHeader }: TProps) {
 function getServerSession() {
   throw new Error('Function not implemented.');
 }
-
