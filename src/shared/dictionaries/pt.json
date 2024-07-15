@@ -1,4 +1,15 @@
 {
+  "sidebar": {
+    "Dashboard": "Dashboard",
+    "Transactions": "Transações",
+    "Accounts": "Contas",
+    "Investments": "Investimentos",
+    "CreditCards": "Cartões de Credito",
+    "Loans": "Empréstimos",
+    "Services": "Serviços",
+    "MyPrivileges": "Meus privilégios",
+    "Settings": "Configurações"
+  },
   "signIn": {
     "h1": "Olá mundo!"
   }

@@ -2,9 +2,12 @@ import bankLogo from '@/shared/assets/images/bank-logo.png';
 import { TMenu } from '@/shared/data/menuData';
 
 import { useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 import Image from 'next/image';
 import Link from 'next/link';
+
+import { delPathIntl } from '@/shared/utils/delPathIntl';
 
 type TProps = {
   menuData: TMenu[];
@@ -22,6 +25,8 @@ export function Sidebar({
   openMenu,
   handleMenu
 }: TProps) {
+  const t = useTranslations('sidebar');
+
   const [actualClass, setActualClass] = useState<string>('');
 
   useEffect(() => {
@@ -61,15 +66,17 @@ export function Sidebar({
               <Link
                 href={menu.path}
                 className={`
-                      mt-1 flex items-center gap-4  rounded-s-xl py-2 pl-5 lg:mt-2 lg:text-lg ${openMenu && `${menu.path === pathname && 'border-l-[.35rem] border-blue-700 text-blue-700'}`} ${menu.path === pathname && 'bg-blue-50'} hover:bg-blue-50
+                      mt-1 flex items-center gap-4  rounded-s-xl py-2 pl-5 lg:mt-2 lg:text-lg ${openMenu && `${menu.path === pathname && 'border-l-[.35rem] border-blue-700 text-blue-700'}`} ${menu.path === delPathIntl(pathname) && 'bg-blue-50'} hover:bg-blue-50
                     `}
                 onClick={() => getTittleActualLocation(pathname)}
               >
                 <menu.Icon
-                  color={menu.path === pathname ? '#1D4ED8' : undefined}
+                  color={
+                    menu.path === delPathIntl(pathname) ? '#1D4ED8' : undefined
+                  }
                 />
                 {openMenu && (
-                  <span className="truncate font-medium">{menu.title}</span>
+                  <span className="truncate font-medium">{t(menu.ref)}</span>
                 )}
               </Link>
             </li>

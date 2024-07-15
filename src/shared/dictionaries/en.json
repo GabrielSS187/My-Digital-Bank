@@ -1,4 +1,15 @@
 {
+  "sidebar": {
+    "Dashboard": "Dashboard",
+    "Transactions": "Transactions",
+    "Accounts": "Accounts",
+    "Investments": "Investments",
+    "CreditCards": "Credit Cards",
+    "Loans": "Loans",
+    "Services": "Services",
+    "MyPrivileges": "My Privileges",
+    "Settings": "Settings"
+  },
   "signIn": {
     "h1": "Hello world!"
   }
