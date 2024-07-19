@@ -6,7 +6,9 @@ import { menuData } from '@/shared/data/menuData';
 
 import { useCallback, useState, useEffect } from 'react';
 
-import { usePathname } from 'next/navigation';
+import { usePathname } from '@/navigation';
+
+import { delPathIntl } from '../utils/delPathIntl';
 
 type TProps = {
   pChildren: React.ReactNode;
