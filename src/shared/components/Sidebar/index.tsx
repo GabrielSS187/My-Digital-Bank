@@ -66,7 +66,7 @@ export function Sidebar({
               <Link
                 href={menu.path}
                 className={`
-                      mt-1 flex items-center gap-4  rounded-s-xl py-2 pl-5 lg:mt-2 lg:text-lg ${openMenu && `${menu.path === pathname && 'border-l-[.35rem] border-blue-700 text-blue-700'}`} ${menu.path === delPathIntl(pathname) && 'bg-blue-50'} hover:bg-blue-50
+                      mt-1 flex items-center gap-4  rounded-s-xl py-2 pl-5 lg:mt-2 lg:text-lg ${openMenu && `${menu.path === delPathIntl(pathname) && 'border-l-[.35rem] border-blue-700 text-blue-700'}`} ${menu.path === delPathIntl(pathname) && 'bg-blue-50'} hover:bg-blue-50
                     `}
                 onClick={() => getTittleActualLocation(pathname)}
               >
