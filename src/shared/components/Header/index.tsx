@@ -14,6 +14,7 @@ import {
 import { Gear, BellSimple, List } from 'phosphor-react';
 
 import { signOut } from 'next-auth/react';
+import { Languages } from '../languages';
 
 type TProps = {
   openMenuInHeader: () => void;
@@ -43,12 +44,16 @@ export function Header({ actualLocationTitle, openMenuInHeader }: TProps) {
               placeholder="Search by name..."
             />
           </div>
-          <button className="hidden rounded-full bg-gray-100 p-2 lg:block">
-            <Gear size={25} />
-          </button>
-          <button className="hidden rounded-full bg-gray-100 p-2 text-red-500 lg:block">
+
+          <Languages />
+
+          <button 
+            className="hidden rounded-full bg-gray-100 p-2 text-red-500 lg:block"
+            title="Alertas"
+          >
             <BellSimple size={25} />
           </button>
+
           <DropdownMenu>
             <DropdownMenuTrigger>
               <Avatar>
