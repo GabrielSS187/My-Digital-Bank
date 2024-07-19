@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import {
   Avatar,
   AvatarFallback,
@@ -11,7 +13,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from '@/shared/components/ui/dropdown-menu';
-import { Gear, BellSimple, List } from 'phosphor-react';
+import { BellSimple, List } from 'phosphor-react';
 
 import { signOut } from 'next-auth/react';
 import { Languages } from '../languages';
@@ -22,6 +24,12 @@ type TProps = {
 };
 
 export function Header({ actualLocationTitle, openMenuInHeader }: TProps) {
+  const [handleDrop, setHandleDrop] = useState<boolean>(false);
+
+  function getDropChange(e: boolean) {
+    setHandleDrop(e);
+  }
+
   return (
     <div className="flex flex-col items-center gap-3 border-b-2 px-5 py-4">
       <div className="flex h-auto w-full items-center justify-between">
@@ -47,16 +55,16 @@ export function Header({ actualLocationTitle, openMenuInHeader }: TProps) {
 
           <Languages />
 
-          <button 
+          <button
             className="hidden rounded-full bg-gray-100 p-2 text-red-500 lg:block"
             title="Alertas"
           >
             <BellSimple size={25} />
           </button>
 
-          <DropdownMenu>
+          <DropdownMenu onOpenChange={(e) => getDropChange(e)}>
             <DropdownMenuTrigger>
-              <Avatar>
+              <Avatar className={`${handleDrop && 'outline-double'}`}>
                 <AvatarImage src="https://github.com/shadcn.png" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>

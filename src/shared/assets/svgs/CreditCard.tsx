@@ -4,7 +4,7 @@ export const CreditCard: FC<{ color?: string }> = ({ color }) => {
   const colorCondition: string = color || '#B1B1B1';
   return (
     <svg
-      className="!h-[20px] !w-[25px]"
+      className="!h-[25px] !w-[25px]"
       viewBox="0 0 25 25"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

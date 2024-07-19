@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import Image, { StaticImageData } from 'next/image';
+import { usePathname } from 'next/navigation';
 
 import { Button } from '@/shared/components/ui/button';
 import {
@@ -19,28 +21,40 @@ import uniStatesIcon from '@/shared/assets/icons/united-states.png';
 
 type TLanguages = {
   language: string;
+  ref: string;
   iconCountry: StaticImageData;
 };
 
 type Checked = DropdownMenuCheckboxItemProps['checked'];
 
 export function Languages() {
+  const [handleDrop, setHandleDrop] = useState<boolean>(false);
+
+  const path = usePathname();
+  const pathActuallyLanguage = path.split('/')[1];
+
   const languages: TLanguages[] = [
     {
       language: 'Português',
+      ref: 'pt',
       iconCountry: brazilIcon
     },
     {
       language: 'Inglês',
+      ref: 'en',
       iconCountry: uniStatesIcon
     }
   ];
 
+  function getDropChange(e: boolean) {
+    setHandleDrop(e);
+  }
+
   return (
-    <DropdownMenu>
+    <DropdownMenu onOpenChange={(e) => getDropChange(e)}>
       <DropdownMenuTrigger asChild>
         <button
-          className="hidden rounded-full bg-gray-100 p-2 text-black  lg:block"
+          className={`hidden rounded-full p-2 ${handleDrop ? 'bg-gray-500 text-white' : 'bg-gray-100 text-black'} lg:block`}
           title="Idiomas"
         >
           <Translate size={25} />
@@ -51,7 +65,10 @@ export function Languages() {
         <DropdownMenuSeparator />
         {languages.map((l) => {
           return (
-            <DropdownMenuCheckboxItem checked>
+            <DropdownMenuCheckboxItem
+              checked={l.ref === pathActuallyLanguage}
+              key={l.language}
+            >
               {l.language}
 
               <DropdownMenuShortcut>
