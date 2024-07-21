@@ -10,7 +10,15 @@
     "MyPrivileges": "My Privileges",
     "Settings": "Settings"
   },
+  "header": {
+    "myAccount": "My account",
+    "settings": "Settings",
+    "logout": "Logout"
+  },
   "signIn": {
     "h1": "Hello world!"
+  },
+  "others": {
+    "languages": "Languages"
   }
 }

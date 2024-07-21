@@ -17,6 +17,7 @@ import { BellSimple, List } from 'phosphor-react';
 
 import { signOut } from 'next-auth/react';
 import { Languages } from '../languages';
+import { useTranslations } from 'next-intl';
 
 type TProps = {
   openMenuInHeader: () => void;
@@ -24,6 +25,9 @@ type TProps = {
 };
 
 export function Header({ actualLocationTitle, openMenuInHeader }: TProps) {
+  const t = useTranslations('sidebar');
+  const tHeader = useTranslations('header');
+
   const [handleDrop, setHandleDrop] = useState<boolean>(false);
 
   function getDropChange(e: boolean) {
@@ -40,7 +44,7 @@ export function Header({ actualLocationTitle, openMenuInHeader }: TProps) {
         </div>
         <div>
           <h2 className="text-2xl font-semibold text-blue-900">
-            {actualLocationTitle}
+            {t(actualLocationTitle)}
           </h2>
         </div>
 
@@ -70,11 +74,11 @@ export function Header({ actualLocationTitle, openMenuInHeader }: TProps) {
               </Avatar>
 
               <DropdownMenuContent className="absolute !right-[-22px] !w-[10rem]">
-                <DropdownMenuLabel>Minha Conta</DropdownMenuLabel>
+                <DropdownMenuLabel>{tHeader('myAccount')}</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>Configurações</DropdownMenuItem>
+                <DropdownMenuItem>{tHeader('settings')}</DropdownMenuItem>
                 <DropdownMenuItem onClick={() => signOut()}>
-                  Sair
+                  {tHeader('logout')}
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenuTrigger>
@@ -101,7 +105,4 @@ export function Header({ actualLocationTitle, openMenuInHeader }: TProps) {
       </div>
     </div>
   );
-}
-function getServerSession() {
-  throw new Error('Function not implemented.');
 }

@@ -10,7 +10,15 @@
     "MyPrivileges": "Meus privilégios",
     "Settings": "Configurações"
   },
+  "header": {
+    "myAccount": "Minha conta",
+    "settings": "Configurações",
+    "logout": "Sair"
+  },
   "signIn": {
     "h1": "Olá mundo!"
+  },
+  "others": {
+    "languages": "Idiomas"
   }
 }
