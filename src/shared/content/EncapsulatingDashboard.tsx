@@ -14,7 +14,8 @@ type TProps = {
 
 export function EncapsulatingDashboard({ pChildren }: TProps) {
   const [openMenu, setOpenMenu] = useState<boolean>(true);
-  const [actualLocationTitle, setActualLocationTittle] = useState<string>('');
+  const [actualLocationTitle, setActualLocationTittle] =
+    useState<string>('Dashboard');
 
   const pathname = usePathname();
 

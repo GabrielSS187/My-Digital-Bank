@@ -19,6 +19,8 @@
     "h1": "Olá mundo!"
   },
   "others": {
-    "languages": "Idiomas"
+    "languages": "Idiomas",
+    "alerts": "Alertas",
+    "searchByName": "Procura por nome..."
   }
 }

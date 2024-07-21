@@ -21,6 +21,7 @@ import { Translate } from 'phosphor-react';
 
 import brazilIcon from '@/shared/assets/icons/brazil.png';
 import uniStatesIcon from '@/shared/assets/icons/united-states.png';
+import { useTranslations } from 'next-intl';
 
 type TLanguages = {
   language: string;
@@ -29,6 +30,8 @@ type TLanguages = {
 };
 
 export function Languages() {
+  const t = useTranslations('others');
+
   const [handleDrop, setHandleDrop] = useState<boolean>(false);
 
   const path = usePathname();
@@ -57,13 +60,13 @@ export function Languages() {
       <DropdownMenuTrigger asChild>
         <button
           className={`hidden rounded-full p-2 ${handleDrop ? 'bg-gray-500 text-white' : 'bg-gray-100 text-black'} lg:block`}
-          title="Idiomas"
+          title={t('languages')}
         >
           <Translate size={25} />
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
-        <DropdownMenuLabel>Idiomas</DropdownMenuLabel>
+        <DropdownMenuLabel>{t('languages')}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         {languages.map((l) => {
           return (

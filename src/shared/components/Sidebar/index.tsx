@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 
 import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from '@/navigation';
 
 import { delPathIntl } from '@/shared/utils/delPathIntl';
 
@@ -36,7 +36,7 @@ export function Sidebar({
     } else {
       setActualClass('transition-all ease-in duration-300 lg:w-16');
     }
-  }, [openMenu, actualClass, pathname, getTittleActualLocation]);
+  }, [openMenu, actualClass, pathname]);
 
   return (
     <nav
@@ -62,7 +62,7 @@ export function Sidebar({
         </button>
         <div className="mt-4 lg:mt-7">
           {menuData.map((menu) => (
-            <li key={menu.id} title={`${!openMenu ? menu.title : ''}`}>
+            <li key={menu.id} title={`${!openMenu ? t(menu.ref) : ''}`}>
               <Link
                 href={menu.path}
                 className={`

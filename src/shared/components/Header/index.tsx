@@ -27,6 +27,7 @@ type TProps = {
 export function Header({ actualLocationTitle, openMenuInHeader }: TProps) {
   const t = useTranslations('sidebar');
   const tHeader = useTranslations('header');
+  const tOthers = useTranslations('others');
 
   const [handleDrop, setHandleDrop] = useState<boolean>(false);
 
@@ -53,7 +54,7 @@ export function Header({ actualLocationTitle, openMenuInHeader }: TProps) {
             <input
               type="search"
               className="rounded-3xl border-0 bg-gray-100 px-3 py-2 text-base shadow"
-              placeholder="Search by name..."
+              placeholder={tOthers('searchByName')}
             />
           </div>
 
@@ -61,7 +62,7 @@ export function Header({ actualLocationTitle, openMenuInHeader }: TProps) {
 
           <button
             className="hidden rounded-full bg-gray-100 p-2 text-red-500 lg:block"
-            title="Alertas"
+            title={tOthers('alerts')}
           >
             <BellSimple size={25} />
           </button>
@@ -84,24 +85,6 @@ export function Header({ actualLocationTitle, openMenuInHeader }: TProps) {
             </DropdownMenuTrigger>
           </DropdownMenu>
         </div>
-      </div>
-
-      <div className="flex w-full gap-3 lg:hidden">
-        <div className="w-full">
-          <input
-            type="search"
-            className="w-full rounded-3xl border-0 bg-gray-100 px-3 py-2 text-base shadow"
-            placeholder="Search by name..."
-          />
-        </div>
-        {/* <div className="flex gap-3">
-          <button className=" rounded-full bg-gray-100 p-2">
-            <Gear size={25} />
-          </button>
-          <button className=" rounded-full bg-gray-100 p-2 text-red-500">
-            <BellSimple size={25} />
-          </button>
-        </div> */}
       </div>
     </div>
   );
