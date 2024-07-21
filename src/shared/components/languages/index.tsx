@@ -1,6 +1,9 @@
+'use client';
+
 import { useState } from 'react';
 import Image, { StaticImageData } from 'next/image';
 import { usePathname } from 'next/navigation';
+import { usePathname as usePathnameI18, Link } from '@/navigation';
 
 import { Button } from '@/shared/components/ui/button';
 import {
@@ -25,12 +28,11 @@ type TLanguages = {
   iconCountry: StaticImageData;
 };
 
-type Checked = DropdownMenuCheckboxItemProps['checked'];
-
 export function Languages() {
   const [handleDrop, setHandleDrop] = useState<boolean>(false);
 
   const path = usePathname();
+  const pathI18 = usePathnameI18();
   const pathActuallyLanguage = path.split('/')[1];
 
   const languages: TLanguages[] = [
@@ -65,16 +67,21 @@ export function Languages() {
         <DropdownMenuSeparator />
         {languages.map((l) => {
           return (
-            <DropdownMenuCheckboxItem
-              checked={l.ref === pathActuallyLanguage}
+            <Link 
+              href={pathI18} 
+              locale={l.ref}
               key={l.language}
             >
-              {l.language}
+              <DropdownMenuCheckboxItem
+                checked={l.ref === pathActuallyLanguage}
+              >
+                  {l.language}
 
-              <DropdownMenuShortcut>
-                <Image src={l.iconCountry} width={26} alt={l.language} />
-              </DropdownMenuShortcut>
-            </DropdownMenuCheckboxItem>
+                  <DropdownMenuShortcut>
+                    <Image src={l.iconCountry} width={26} alt={l.language} />
+                  </DropdownMenuShortcut>
+              </DropdownMenuCheckboxItem>
+            </Link>
           );
         })}
       </DropdownMenuContent>
