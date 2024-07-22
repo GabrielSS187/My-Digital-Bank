@@ -7,7 +7,10 @@ import { Label } from '@/shared/components/ui/label';
 import { useForm } from 'react-hook-form';
 
 import { signIn } from 'next-auth/react';
-import Link from 'next/link';
+import { Link } from '@/navigation';
+
+import { Languages } from '../languages';
+import { useTranslations } from 'next-intl';
 
 type Props = {
   isFormLogin?: boolean;
@@ -20,6 +23,8 @@ type TFormData = {
 };
 
 export function FormSignInAndSignUp({ isFormLogin = true }: Props) {
+  const t = useTranslations('loginAndSign');
+  
   const form = useForm<TFormData>();
 
   const handleForm = form.handleSubmit(async (data) => {
@@ -38,39 +43,39 @@ export function FormSignInAndSignUp({ isFormLogin = true }: Props) {
     <div className="mx-auto max-w-sm space-y-6">
       <div className="space-y-2 text-center">
         <h1 className="text-3xl font-bold">
-          {isFormLogin ? 'Login' : 'Sign up'}
+          {isFormLogin ? t('login') : t('signUp')}
         </h1>
         <p className="text-gray-500 dark:text-gray-400">
           {isFormLogin
-            ? 'Enter your email and password to access your account.'
-            : 'Enter your email and password to create your account.'}
+            ? t('titleOne')
+            : t('titleTwo')}
         </p>
       </div>
       <form onSubmit={handleForm} className="space-y-4">
         {!isFormLogin && (
           <div className="space-y-2">
-            <Label htmlFor="name">Name</Label>
+            <Label htmlFor="name">{t('name')}</Label>
             <Input
               {...form.register('name')}
               id="name"
-              placeholder="Gabriel..."
+              placeholder={t('placeholderName')}
               type="text"
               required
             />
           </div>
         )}
         <div className="space-y-2">
-          <Label htmlFor="email">Email</Label>
+          <Label htmlFor="email">{t('email')}</Label>
           <Input
             {...form.register('email')}
             id="email"
-            placeholder="m@example.com"
+            placeholder={t('placeholderEmail')}
             type="email"
             required
           />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="password">Password</Label>
+          <Label htmlFor="password">{t('password')}</Label>
           <Input
             {...form.register('password')}
             id="password"
@@ -80,21 +85,27 @@ export function FormSignInAndSignUp({ isFormLogin = true }: Props) {
           />
         </div>
         <Button className="w-full" type="submit">
-          {isFormLogin ? 'Sign in' : 'Confirm'}
+          {isFormLogin ? t('signIn') : t('confirm')}
         </Button>
       </form>
 
       {isFormLogin && (
         <div className="flex justify-center">
-          <Link href="/signUp">Create new account</Link>
+          <Link href="/signUp">{t('createNewAccount')}</Link>
         </div>
       )}
 
       {!isFormLogin && (
         <div className="flex justify-center">
-          <Link href="/signIn">Login in account</Link>
+          <Link href="/signIn">{t('loginInAccount')}</Link>
         </div>
       )}
+
+      <div className="flex justify-center">
+        <div className="max-w-fit border-2 border-solid rounded-full">
+          <Languages />
+        </div>
+      </div>
     </div>
   );
 }

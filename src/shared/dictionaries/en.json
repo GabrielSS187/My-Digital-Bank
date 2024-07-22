@@ -15,8 +15,20 @@
     "settings": "Settings",
     "logout": "Logout"
   },
-  "signIn": {
-    "h1": "Hello world!"
+  "loginAndSign": {
+    "login": "Login",
+    "signUp": "Sign up",
+    "signIn": "Sign in",
+    "titleOne": "Enter your email and password to access your account",
+    "titleTwo": "Enter your email and password to create your account",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "placeholderName": "Gabriel...",
+    "placeholderEmail": "m@example.com",
+    "confirm": "Confirm",
+    "createNewAccount": "Create new account",
+    "loginInAccount": "Login in account"
   },
   "others": {
     "languages": "Languages",

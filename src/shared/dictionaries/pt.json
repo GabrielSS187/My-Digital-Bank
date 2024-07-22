@@ -15,8 +15,20 @@
     "settings": "Configurações",
     "logout": "Sair"
   },
-  "signIn": {
-    "h1": "Olá mundo!"
+  "loginAndSign": {
+    "login": "Conecte-se",
+    "signUp": "Inscrever-se",
+    "signIn": "Entrar",
+    "titleOne": "Digite seu e-mail e senha para acessar sua conta",
+    "titleTwo": "Digite seu e-mail e senha para criar sua conta",
+    "name": "Nome",
+    "email": "Email",
+    "password": "Senha",
+    "placeholderName": "Gabriel...",
+    "placeholderEmail": "m@exemplo.com",
+    "confirm": "Confirma",
+    "createNewAccount": "Criar nova conta",
+    "loginInAccount": "Entrar na conta"
   },
   "others": {
     "languages": "Idiomas",
