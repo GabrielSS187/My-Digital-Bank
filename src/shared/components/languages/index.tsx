@@ -1,10 +1,8 @@
 'use client';
 
-import { useState } from 'react';
-import Image, { StaticImageData } from 'next/image';
-import { usePathname } from 'next/navigation';
 import { usePathname as usePathnameI18, Link } from '@/navigation';
-
+import brazilIcon from '@/shared/assets/icons/brazil.png';
+import uniStatesIcon from '@/shared/assets/icons/united-states.png';
 import { Button } from '@/shared/components/ui/button';
 import {
   DropdownMenu,
@@ -16,12 +14,13 @@ import {
   DropdownMenuTrigger
 } from '@/shared/components/ui/dropdown-menu';
 import { DropdownMenuCheckboxItemProps } from '@radix-ui/react-dropdown-menu';
-
 import { Translate } from 'phosphor-react';
 
-import brazilIcon from '@/shared/assets/icons/brazil.png';
-import uniStatesIcon from '@/shared/assets/icons/united-states.png';
+import { useState } from 'react';
+
 import { useTranslations } from 'next-intl';
+import Image, { StaticImageData } from 'next/image';
+import { usePathname } from 'next/navigation';
 
 type TLanguages = {
   language: string;
@@ -70,19 +69,15 @@ export function Languages() {
         <DropdownMenuSeparator />
         {languages.map((l) => {
           return (
-            <Link 
-              href={pathI18} 
-              locale={l.ref}
-              key={l.language}
-            >
+            <Link href={pathI18} locale={l.ref} key={l.language}>
               <DropdownMenuCheckboxItem
                 checked={l.ref === pathActuallyLanguage}
               >
-                  {l.language}
+                {l.language}
 
-                  <DropdownMenuShortcut>
-                    <Image src={l.iconCountry} width={26} alt={l.language} />
-                  </DropdownMenuShortcut>
+                <DropdownMenuShortcut>
+                  <Image src={l.iconCountry} width={26} alt={l.language} />
+                </DropdownMenuShortcut>
               </DropdownMenuCheckboxItem>
             </Link>
           );

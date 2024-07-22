@@ -1,13 +1,12 @@
+import { Link } from '@/navigation';
 import bankLogo from '@/shared/assets/images/bank-logo.png';
 import { TMenu } from '@/shared/data/menuData';
+import { delPathIntl } from '@/shared/utils/delPathIntl';
 
 import { useEffect, useState } from 'react';
+
 import { useTranslations } from 'next-intl';
-
 import Image from 'next/image';
-import { Link } from '@/navigation';
-
-import { delPathIntl } from '@/shared/utils/delPathIntl';
 
 type TProps = {
   menuData: TMenu[];

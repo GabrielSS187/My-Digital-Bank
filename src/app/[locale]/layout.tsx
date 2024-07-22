@@ -7,8 +7,8 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'My Digital Bank',
-  description: 'departamento do banco digital mais moderno do mundo'
+  title: 'Bank Dash',
+  description: 'departamento do banco digital mais moderno do mundo 😁'
 };
 
 export default async function RootLayout({

@@ -1,11 +1,10 @@
 import { DEFAULT_REDIRECT, PUBLIC_ROUTES, ROOT } from '@/lib/routes';
 import { authConfig } from '@/shared/services/auth/auth.config';
+import { delPathIntl } from '@/shared/utils/delPathIntl';
 
 import NextAuth from 'next-auth';
 
 import { intlMiddleware } from './translate-middleware';
-
-import { delPathIntl } from '@/shared/utils/delPathIntl';
 
 const { auth } = NextAuth(authConfig);
 

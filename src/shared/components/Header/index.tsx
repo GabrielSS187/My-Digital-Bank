@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import {
   Avatar,
   AvatarFallback,
@@ -15,9 +13,12 @@ import {
 } from '@/shared/components/ui/dropdown-menu';
 import { BellSimple, List } from 'phosphor-react';
 
+import { useState } from 'react';
+
 import { signOut } from 'next-auth/react';
-import { Languages } from '../languages';
 import { useTranslations } from 'next-intl';
+
+import { Languages } from '../languages';
 
 type TProps = {
   openMenuInHeader: () => void;

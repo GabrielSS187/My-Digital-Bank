@@ -1,5 +1,6 @@
 'use client';
 
+import { Link } from '@/navigation';
 import { Button } from '@/shared/components/ui/button';
 import { Input } from '@/shared/components/ui/input';
 import { Label } from '@/shared/components/ui/label';
@@ -7,10 +8,9 @@ import { Label } from '@/shared/components/ui/label';
 import { useForm } from 'react-hook-form';
 
 import { signIn } from 'next-auth/react';
-import { Link } from '@/navigation';
+import { useTranslations } from 'next-intl';
 
 import { Languages } from '../languages';
-import { useTranslations } from 'next-intl';
 
 type Props = {
   isFormLogin?: boolean;
@@ -24,7 +24,7 @@ type TFormData = {
 
 export function FormSignInAndSignUp({ isFormLogin = true }: Props) {
   const t = useTranslations('loginAndSign');
-  
+
   const form = useForm<TFormData>();
 
   const handleForm = form.handleSubmit(async (data) => {
@@ -46,9 +46,7 @@ export function FormSignInAndSignUp({ isFormLogin = true }: Props) {
           {isFormLogin ? t('login') : t('signUp')}
         </h1>
         <p className="text-gray-500 dark:text-gray-400">
-          {isFormLogin
-            ? t('titleOne')
-            : t('titleTwo')}
+          {isFormLogin ? t('titleOne') : t('titleTwo')}
         </p>
       </div>
       <form onSubmit={handleForm} className="space-y-4">
@@ -102,7 +100,7 @@ export function FormSignInAndSignUp({ isFormLogin = true }: Props) {
       )}
 
       <div className="flex justify-center">
-        <div className="max-w-fit border-2 border-solid rounded-full">
+        <div className="max-w-fit rounded-full border-2 border-solid">
           <Languages />
         </div>
       </div>

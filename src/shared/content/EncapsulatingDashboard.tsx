@@ -1,12 +1,11 @@
 'use client';
 
+import { usePathname } from '@/navigation';
 import { Header } from '@/shared/components/Header';
 import { Sidebar } from '@/shared/components/Sidebar';
 import { menuData } from '@/shared/data/menuData';
 
 import { useCallback, useState, useEffect } from 'react';
-
-import { usePathname } from '@/navigation';
 
 type TProps = {
   pChildren: React.ReactNode;
