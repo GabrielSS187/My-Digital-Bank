@@ -1,12 +1,11 @@
 'use client';
 
+import { usePathname } from '@/navigation';
 import { Header } from '@/shared/components/Header';
 import { Sidebar } from '@/shared/components/Sidebar';
 import { menuData } from '@/shared/data/menuData';
 
 import { useCallback, useState, useEffect } from 'react';
-
-import { usePathname } from 'next/navigation';
 
 type TProps = {
   pChildren: React.ReactNode;
@@ -14,7 +13,8 @@ type TProps = {
 
 export function EncapsulatingDashboard({ pChildren }: TProps) {
   const [openMenu, setOpenMenu] = useState<boolean>(true);
-  const [actualLocationTitle, setActualLocationTittle] = useState<string>('');
+  const [actualLocationTitle, setActualLocationTittle] =
+    useState<string>('Dashboard');
 
   const pathname = usePathname();
 
