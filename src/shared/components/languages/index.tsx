@@ -58,7 +58,7 @@ export function Languages() {
     <DropdownMenu onOpenChange={(e) => getDropChange(e)}>
       <DropdownMenuTrigger asChild>
         <button
-          className={`hidden rounded-full p-2 ${handleDrop ? 'bg-gray-500 text-white' : 'bg-gray-100 text-black'} lg:block`}
+          className={`rounded-full p-2 ${handleDrop ? 'bg-gray-500 text-white' : 'bg-gray-100 text-black'}`}
           title={t('languages')}
         >
           <Translate size={25} />
