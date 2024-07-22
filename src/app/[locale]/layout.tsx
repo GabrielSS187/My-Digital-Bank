@@ -8,7 +8,8 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Bank Dash',
-  description: 'departamento do banco digital mais moderno do mundo 😁'
+  description: 'departamento de banco digital mais moderno do mundo 😁',
+  icons: '../../..//favicon.ico'
 };
 
 export default async function RootLayout({
