@@ -59,7 +59,9 @@ export function Header({ actualLocationTitle, openMenuInHeader }: TProps) {
             />
           </div>
 
-          <Languages />
+          <div className="hidden lg:block">
+            <Languages />
+          </div>
 
           <button
             className="hidden rounded-full bg-gray-100 p-2 text-red-500 lg:block"
