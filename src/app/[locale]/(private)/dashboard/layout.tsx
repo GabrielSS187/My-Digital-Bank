@@ -3,7 +3,7 @@ import { EncapsulatingDashboard } from '@/shared/content/EncapsulatingDashboard'
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Dashboard'
+  title: 'B. - Dashboard'
 };
 export default function DashboardLayout({
   children

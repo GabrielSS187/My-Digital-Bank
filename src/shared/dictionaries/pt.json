@@ -1,0 +1,38 @@
+{
+  "sidebar": {
+    "Dashboard": "Dashboard",
+    "Transactions": "Transações",
+    "Accounts": "Contas",
+    "Investments": "Investimentos",
+    "CreditCards": "Cartões de Credito",
+    "Loans": "Empréstimos",
+    "Services": "Serviços",
+    "MyPrivileges": "Meus privilégios",
+    "Settings": "Configurações"
+  },
+  "header": {
+    "myAccount": "Minha conta",
+    "settings": "Configurações",
+    "logout": "Sair"
+  },
+  "loginAndSign": {
+    "login": "Conecte-se",
+    "signUp": "Inscrever-se",
+    "signIn": "Entrar",
+    "titleOne": "Digite seu e-mail e senha para acessar sua conta",
+    "titleTwo": "Digite seu e-mail e senha para criar sua conta",
+    "name": "Nome",
+    "email": "Email",
+    "password": "Senha",
+    "placeholderName": "Gabriel...",
+    "placeholderEmail": "m@exemplo.com",
+    "confirm": "Confirma",
+    "createNewAccount": "Criar nova conta",
+    "loginInAccount": "Entrar na conta"
+  },
+  "others": {
+    "languages": "Idiomas",
+    "alerts": "Alertas",
+    "searchByName": "Procura por nome..."
+  }
+}

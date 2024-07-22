@@ -1,10 +1,12 @@
+import { Link } from '@/navigation';
 import bankLogo from '@/shared/assets/images/bank-logo.png';
 import { TMenu } from '@/shared/data/menuData';
+import { delPathIntl } from '@/shared/utils/delPathIntl';
 
 import { useEffect, useState } from 'react';
 
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import Link from 'next/link';
 
 type TProps = {
   menuData: TMenu[];
@@ -22,6 +24,8 @@ export function Sidebar({
   openMenu,
   handleMenu
 }: TProps) {
+  const t = useTranslations('sidebar');
+
   const [actualClass, setActualClass] = useState<string>('');
 
   useEffect(() => {
@@ -31,7 +35,7 @@ export function Sidebar({
     } else {
       setActualClass('transition-all ease-in duration-300 lg:w-16');
     }
-  }, [openMenu, actualClass, pathname, getTittleActualLocation]);
+  }, [openMenu, actualClass, pathname]);
 
   return (
     <nav
@@ -57,19 +61,21 @@ export function Sidebar({
         </button>
         <div className="mt-4 lg:mt-7">
           {menuData.map((menu) => (
-            <li key={menu.id} title={`${!openMenu ? menu.title : ''}`}>
+            <li key={menu.id} title={`${!openMenu ? t(menu.ref) : ''}`}>
               <Link
                 href={menu.path}
                 className={`
-                      mt-1 flex items-center gap-4  rounded-s-xl py-2 pl-5 lg:mt-2 lg:text-lg ${openMenu && `${menu.path === pathname && 'border-l-[.35rem] border-blue-700 text-blue-700'}`} ${menu.path === pathname && 'bg-blue-50'} hover:bg-blue-50
+                      mt-1 flex items-center gap-4  rounded-s-xl py-2 pl-5 lg:mt-2 lg:text-lg ${openMenu && `${menu.path === delPathIntl(pathname) && 'border-l-[.35rem] border-blue-700 text-blue-700'}`} ${menu.path === delPathIntl(pathname) && 'bg-blue-50'} hover:bg-blue-50
                     `}
                 onClick={() => getTittleActualLocation(pathname)}
               >
                 <menu.Icon
-                  color={menu.path === pathname ? '#1D4ED8' : undefined}
+                  color={
+                    menu.path === delPathIntl(pathname) ? '#1D4ED8' : undefined
+                  }
                 />
                 {openMenu && (
-                  <span className="truncate font-medium">{menu.title}</span>
+                  <span className="truncate font-medium">{t(menu.ref)}</span>
                 )}
               </Link>
             </li>
