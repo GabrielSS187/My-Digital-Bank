@@ -4,6 +4,10 @@
 
 
 :root {
+  /* system */
+  --s-bg-color-primary: #F5F7FA;
+  --s-bg-color-secondary: #FFFFFF;
+
   /* text */
   --color-text-1: #343C6A;
   --color-text-2: #2D60FF;

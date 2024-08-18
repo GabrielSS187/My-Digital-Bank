@@ -41,8 +41,8 @@ export function Sidebar({
     <nav
       className={`fixed h-screen lg:static ${!openMenu ? 'transition-all duration-300 ease-in max-lg:translate-x-[-18rem]' : 'z-50 w-full bg-neutral-600 bg-opacity-55 transition-all duration-300 ease-out lg:w-auto lg:bg-none'}`}
     >
-      <ul className={`${actualClass} h-screen break-words border-r-2 bg-white`}>
-        <div className="font-month flex items-center gap-2 px-5 py-4 text-3xl font-extrabold text-blue-950">
+      <ul className={`${actualClass} h-screen break-words border-r-2 bg-s-bg-color-secondary`}>
+        <div className="font-month flex items-center gap-2 px-5 py-4 text-3xl font-extrabold text-color-text-1">
           {openMenu && (
             <Image
               src={bankLogo}
@@ -55,7 +55,7 @@ export function Sidebar({
         </div>
         <button
           onClick={handleMenu}
-          className={`absolute  ${openMenu ? 'left-[15.1rem] transition-all ease-out' : 'left-[3.1rem] transition-all ease-in'} top-[3rem] z-50 rounded-full border border-stone-950 bg-blue-700 px-[7px] text-center font-extrabold text-white duration-300 lg:top-[3.65rem]`}
+          className={`absolute  ${openMenu ? 'left-[15.1rem] transition-all ease-out' : 'left-[3.1rem] transition-all ease-in'} top-[3rem] z-50 rounded-full border border-stone-950 bg-btn-bg-color-3 px-[7px] text-center font-extrabold text-color-text-6 duration-300 lg:top-[3.65rem]`}
         >
           {openMenu ? '<' : '>'}
         </button>
@@ -65,13 +65,13 @@ export function Sidebar({
               <Link
                 href={menu.path}
                 className={`
-                      mt-1 flex items-center gap-4  rounded-s-xl py-2 pl-5 lg:mt-2 lg:text-lg ${openMenu && `${menu.path === delPathIntl(pathname) && 'border-l-[.35rem] border-blue-700 text-blue-700'}`} ${menu.path === delPathIntl(pathname) && 'bg-blue-50'} hover:bg-blue-50
+                      mt-1 flex items-center gap-4  rounded-s-xl py-2 pl-5 lg:mt-2 lg:text-lg ${openMenu && `${menu.path === delPathIntl(pathname) ? 'border-l-[.35rem] border-color-text-2 text-color-text-2' : 'text-color-text-3'}`} ${menu.path === delPathIntl(pathname) && 'bg-blue-50'} hover:bg-blue-50
                     `}
                 onClick={() => getTittleActualLocation(pathname)}
               >
                 <menu.Icon
                   color={
-                    menu.path === delPathIntl(pathname) ? '#1D4ED8' : undefined
+                    menu.path === delPathIntl(pathname) ? '#2D60FF' : undefined
                   }
                 />
                 {openMenu && (

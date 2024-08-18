@@ -12,6 +12,9 @@ const config = {
   theme: {
     extend: {
       colors: {
+        's-bg-color-primary': 'var(--s-bg-color-primary)',
+        's-bg-color-secondary': 'var(--s-bg-color-secondary)',
+
         'color-text-1': 'var(--color-text-1)',
         'color-text-2': 'var(--color-text-2)',
         'color-text-3': 'var(--color-text-3)',
