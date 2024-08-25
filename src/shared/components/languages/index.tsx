@@ -64,7 +64,7 @@ export function Languages() {
           <Translate size={25} />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56">
+      <DropdownMenuContent className="w-56 bg-s-bg-color-secondary">
         <DropdownMenuLabel>{t('languages')}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         {languages.map((l) => {
