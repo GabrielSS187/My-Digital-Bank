@@ -58,13 +58,13 @@ export function Languages() {
     <DropdownMenu onOpenChange={(e) => getDropChange(e)}>
       <DropdownMenuTrigger asChild>
         <button
-          className={`rounded-full p-2 ${handleDrop ? 'bg-gray-500 text-white' : 'bg-gray-100 text-black'}`}
+          className={`rounded-full p-2 ${handleDrop ? 'bg-gray-500 text-color-text-6' : 'bg-bg-input-color-1 text-color-text-5'}`}
           title={t('languages')}
         >
           <Translate size={25} />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56">
+      <DropdownMenuContent className="w-56 bg-s-bg-color-secondary">
         <DropdownMenuLabel>{t('languages')}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         {languages.map((l) => {
