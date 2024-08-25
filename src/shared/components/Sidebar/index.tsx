@@ -41,7 +41,9 @@ export function Sidebar({
     <nav
       className={`fixed h-screen lg:static ${!openMenu ? 'transition-all duration-300 ease-in max-lg:translate-x-[-18rem]' : 'z-50 w-full bg-neutral-600 bg-opacity-55 transition-all duration-300 ease-out lg:w-auto lg:bg-none'}`}
     >
-      <ul className={`${actualClass} h-screen break-words border-r-2 bg-s-bg-color-secondary`}>
+      <ul
+        className={`${actualClass} h-screen break-words border-r-2 bg-s-bg-color-secondary`}
+      >
         <div className="font-month flex items-center gap-2 px-5 py-4 text-3xl font-extrabold text-color-text-1">
           {openMenu && (
             <Image
@@ -71,7 +73,7 @@ export function Sidebar({
               >
                 <menu.Icon
                   color={
-                    menu.path === delPathIntl(pathname) ? '#2D60FF' : undefined
+                    menu.path === delPathIntl(pathname) ? 'fill-color-text-2' : undefined
                   }
                 />
                 {openMenu && (
