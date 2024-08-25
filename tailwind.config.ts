@@ -39,6 +39,8 @@ const config = {
 
         'bg-input-color-1': 'var(--bg-input-color-1)',
 
+        'border-color-1': 'var(--border-color-1)',
+
         'bg-ball-color-1' :'var(--bg-ball-color-1)',
         'bg-ball-color-2' :'var(--bg-ball-color-2)',
         'bg-ball-color-3' :'var(--bg-ball-color-3)',

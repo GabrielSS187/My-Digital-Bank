@@ -45,7 +45,7 @@ export function Header({ actualLocationTitle, openMenuInHeader }: TProps) {
           </button>
         </div>
         <div>
-          <h2 className="text-2xl font-semibold text-blue-900">
+          <h2 className="text-2xl font-semibold text-color-text-1">
             {t(actualLocationTitle)}
           </h2>
         </div>
@@ -54,7 +54,7 @@ export function Header({ actualLocationTitle, openMenuInHeader }: TProps) {
           <div className="hidden lg:block">
             <input
               type="search"
-              className="rounded-3xl border-0 bg-gray-100 px-3 py-2 text-base shadow"
+              className="rounded-3xl border-0 bg-bg-input-color-1 px-3 py-2 text-base placeholder-color-text-5 shadow"
               placeholder={tOthers('searchByName')}
             />
           </div>
@@ -64,7 +64,7 @@ export function Header({ actualLocationTitle, openMenuInHeader }: TProps) {
           </div>
 
           <button
-            className="hidden rounded-full bg-gray-100 p-2 text-red-500 lg:block"
+            className="hidden rounded-full bg-bg-input-color-1 p-2 text-color-text-8 lg:block"
             title={tOthers('alerts')}
           >
             <BellSimple size={25} />
@@ -77,7 +77,7 @@ export function Header({ actualLocationTitle, openMenuInHeader }: TProps) {
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
 
-              <DropdownMenuContent className="absolute !right-[-22px] !w-[10rem]">
+              <DropdownMenuContent className="absolute !right-[-22px] !w-[10rem] bg-s-bg-color-secondary">
                 <DropdownMenuLabel>{tHeader('myAccount')}</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>{tHeader('settings')}</DropdownMenuItem>

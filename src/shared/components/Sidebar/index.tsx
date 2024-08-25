@@ -13,7 +13,6 @@ type TProps = {
   pathname: string;
   openMenu: boolean;
   handleMenu: () => void;
-  // eslint-disable-next-line no-unused-vars
   getTittleActualLocation: (pathname?: string) => void;
 };
 
