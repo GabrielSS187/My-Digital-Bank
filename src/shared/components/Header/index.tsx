@@ -37,7 +37,7 @@ export function Header({ actualLocationTitle, openMenuInHeader }: TProps) {
   }
 
   return (
-    <div className="flex flex-col items-center gap-3 border-b-2 px-5 py-4 border-border-color-1">
+    <div className="border-border-color-1 flex flex-col items-center gap-3 border-b-2 px-5 py-4">
       <div className="flex h-auto w-full items-center justify-between">
         <div className="mt-1 flex lg:hidden">
           <button onClick={openMenuInHeader}>
