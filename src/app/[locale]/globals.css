@@ -2,75 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+:root {
+  /* system */
+  --s-bg-color-primary: #F5F7FA;
+  --s-bg-color-secondary: #FFFFFF;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
+  /* text */
+  --color-text-1: #343C6A;
+  --color-text-2: #2D60FF;
+  --color-text-3: #B1B1B1;
+  --color-text-4: #232323;
+  --color-text-5: #718EBF;
+  --color-text-6: #FFFFFF;
+  --color-text-7: #8BA3CB;
+  --color-text-8: #FE5C73;
+  --color-text-9: #FFBB38;
+  --color-text-10: #396AFF;
+  --color-text-11: #41D4A8;
+  --color-text-12: #FF4B4A;
+  --color-text-13: #16DBCC;
+  --color-text-14: #FF82AC;
+  --color-text-15: #123288;
+  --color-text-16: #16DBAA ;
+  /* ==================================================== */
+  
 
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
+  /* button */
+  --btn-bg-color-1: #DCFAF8;
+  --btn-bg-color-2: #EDF1F7;
+  --btn-bg-color-3: #1814F3;
 
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
+  --btn-border-color-1: #123288;
+  /* ==================================================== */
 
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
 
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
+  /* input */
+  --bg-input-color-1: #F5F7FA;
+  /* ==================================================== */
+  
+  /* border */
+  --border-color-1: #E6EFF5;
+  /* ==================================================== */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
 
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
+  /* balls */
+  --bg-ball-color-1: #FFE0EB;
+  --bg-ball-color-2: #FFF5D9;
+  --bg-ball-color-3: #E7EDFF;
+  --bg-ball-color-4: #DCFAF8;
+  --bg-ball-color-5: #4C78FF;
+  --bg-ball-color-6: #F5F7FA;
 
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-  }
+  --border-ball-color-1: #718EBF;
+  /* ==================================================== */
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+html, body {
+  @apply h-dvh w-dvw;
 }

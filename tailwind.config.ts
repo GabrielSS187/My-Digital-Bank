@@ -10,67 +10,44 @@ const config = {
   ],
   prefix: '',
   theme: {
-    container: {
-      center: true,
-      padding: '2rem',
-      screens: {
-        '2xl': '1400px'
-      }
-    },
     extend: {
       colors: {
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
-        primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))'
-        },
-        secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))'
-        },
-        destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))'
-        },
-        muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))'
-        },
-        accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))'
-        },
-        popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          foreground: 'hsl(var(--popover-foreground))'
-        },
-        card: {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))'
-        }
-      },
-      borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)'
-      },
-      keyframes: {
-        'accordion-down': {
-          from: { height: '0' },
-          to: { height: 'var(--radix-accordion-content-height)' }
-        },
-        'accordion-up': {
-          from: { height: 'var(--radix-accordion-content-height)' },
-          to: { height: '0' }
-        }
-      },
-      animation: {
-        'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out'
+        's-bg-color-primary': 'var(--s-bg-color-primary)',
+        's-bg-color-secondary': 'var(--s-bg-color-secondary)',
+
+        'color-text-1': 'var(--color-text-1)',
+        'color-text-2': 'var(--color-text-2)',
+        'color-text-3': 'var(--color-text-3)',
+        'color-text-4': 'var(--color-text-4)',
+        'color-text-5': 'var(--color-text-5)',
+        'color-text-6': 'var(--color-text-6)',
+        'color-text-7': 'var(--color-text-7)',
+        'color-text-8': 'var(--color-text-8)',
+        'color-text-9': 'var(--color-text-9)',
+        'color-text-10': 'var(--color-text-10)',
+        'color-text-11': 'var(--color-text-11)',
+        'color-text-12': 'var(--color-text-12)',
+        'color-text-13': 'var(--color-text-13)',
+        'color-text-14': 'var(--color-text-14)',
+        'color-text-15': 'var(--color-text-15)',
+        'color-text-16': 'var(--color-text-16)',
+
+        'btn-bg-color-1': 'var(--btn-bg-color-1)',
+        'btn-bg-color-2': 'var(--btn-bg-color-2)',
+        'btn-bg-color-3': 'var(--btn-bg-color-3)',
+        'btn-border-color-1': 'var(--btn-border-color-1)',
+
+        'bg-input-color-1': 'var(--bg-input-color-1)',
+
+        'border-color-1': 'var(--border-color-1)',
+
+        'bg-ball-color-1' :'var(--bg-ball-color-1)',
+        'bg-ball-color-2' :'var(--bg-ball-color-2)',
+        'bg-ball-color-3' :'var(--bg-ball-color-3)',
+        'bg-ball-color-4' :'var(--bg-ball-color-4)',
+        'bg-ball-color-5' :'var(--bg-ball-color-5)',
+        'bg-ball-color-6' :'var(--bg-ball-color-6)',
+        'border-ball-color-1': 'var(--border-ball-color-1)'
       }
     }
   },

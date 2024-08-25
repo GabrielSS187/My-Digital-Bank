@@ -43,7 +43,7 @@ export function EncapsulatingDashboard({ pChildren }: TProps) {
   }
 
   return (
-    <section className="flex h-screen md:bg-white">
+    <section className="flex bg-s-bg-color-secondary">
       <Sidebar
         openMenu={openMenu}
         handleMenu={handleMenu}
@@ -52,12 +52,14 @@ export function EncapsulatingDashboard({ pChildren }: TProps) {
         getTittleActualLocation={() => getTittleActualLocation(pathname)}
       />
 
-      <div className="w-full">
+      <div className="w-full max-lg:fixed">
         <Header
           openMenuInHeader={openMenuInHeader}
           actualLocationTitle={actualLocationTitle}
         />
-        <div className="h-full bg-gray-50 p-5">{pChildren}</div>
+        <div className="h-full bg-s-bg-color-primary p-5 max-lg:h-dvh">
+          {pChildren}
+        </div>
       </div>
     </section>
   );
